@@ -1,0 +1,19 @@
+topic: ~Reset()
+language: enu
+
+# Programmer: Brandon.C.Annan@sprint.com
+# Comments: Reset from both Acapela and Nuance do not seem honored, needs to be \rst=<some_number>\
+#Acapela document:
+# \rst\  Reset all voices tags (apart RmS, RmW, vol tags)
+
+#Nuance document:
+# The control sequence <ESC>\rst\ resets all parameters to the original settings used at the start of synthesis.
+
+u:(in:onActivation) ^goto(intro)
+
+proposal: %intro This is the default volume then going to level 2.  \vol=2\ The volume is set to a low value.  
+     # \rst\   # According to the Acapela and Nuance docs, this should work but causes syntax error unexpected "\" at line 16 (character 11)
+    \rst=0\  # This works
+    Now it is reset to its default value.
+
+    
