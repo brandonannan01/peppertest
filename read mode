@@ -1,0 +1,46 @@
+topic: ~Read_Mode()
+language: enu
+
+
+# Programmer: Brandon.C.Annan@sprint.com
+# Comments:
+# CharacterMode says "full stop" at the end
+# Line by line mode doesnt put a pause at the end of each line (per example)
+# >\readmode=explicit_eos\  mode doesnt put a pause at the end of each line (per example even with the periods)....need to test this more.
+
+ u:(in:onActivation) ^goto(default)
+# u:(in:onActivation) ^goto(char)
+# u:(in:onActivation) ^goto(word)
+# u:(in:onActivation) ^goto(line)
+# u:(in:onActivation) ^goto(eos)
+
+
+# Example in the document
+proposal: %default Nuance has a setting called read mode.  The default it sentance mode.  Here is an example.  \pau=1000\ \readmode=sent\  This is read mode sentance.
+    ^nextProposal
+    
+proposal: %char \pau=1500\ This is an example of character mode which is like spelling. \pau=1500\ \readmode=char\ Spelling is fun. 
+    ^nextProposal
+
+proposal: %word \pau=1500\ \readmode=sent\  This is an example of word by word mode \pau=1500\ \readmode=word\ This is the word by word mode. 
+    ^nextProposal
+    
+proposal: %line \pau=1500\ \readmode=sent\  This is an example of line by line mode\pau=1500\ \readmode=line\ 
+    Bananas
+    Low-fat milk
+    Whole wheat flour
+    ^nextProposal
+    
+
+proposal: %eos \pau=1500\ 
+    \readmode=explicit_eos\ 
+    Bananas.
+    Low-fat milk.
+    Whole wheat flour.
+    The programmer would like to know more about this.
+
+    
+    
+
+
+    
