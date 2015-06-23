@@ -1,0 +1,58 @@
+topic: ~Shaping()
+language: enu
+
+
+# Programmer: Brandon.C.Annan@sprint.com
+# Comments: In general need to test the usage of the statements and "".  Seems
+# inconsistent with the qiChat API.
+# nuance "pitch" is not honored
+
+u:(in:onActivation) ^goto(intro)
+#u:(in:onActivation) ^goto(acepela)
+#u:(in:onActivation) ^goto(nuance)
+
+proposal: %intro In this example, the Acepela statements are accepted and the Nuance documented statement is not.  Say 1 for Acapela or 2 for Nuance.
+    u1:(1) ^goto(acapela)
+    u1:(2) ^goto(nuance)
+
+
+# Acapela Doc Voice Shaping in percent: 70 % …. 140% ...seems to work well
+proposal: %acapela  This will shape the voice from 70 through 140 percent using the Acapela statements.  
+    \pau=1000\ This is 70 percent \pau=1000\ \vct=70\ this is 70 Percent 
+    \pau=1000\\vct=100\ This is 75 percent \pau=1000\\vct=75\ this is 75 percent. 
+    \pau=1000\\vct=100\ This is 80 percent \pau=1000\\vct=80\ this is 80 percent. 
+    \pau=1000\\vct=100\ This is 85 percent \pau=1000\\vct=85\ this is 85 percent. 
+    \pau=1000\\vct=100\ This is 90 percent \pau=1000\\vct=90\ this is 90 percent. 
+    \pau=1000\\vct=100\ This is 95 percent \pau=1000\\vct=95\ this is 95 percent. 
+    \pau=1000\\vct=100\ This is 100 percent \pau=1000\\vct=100\ this is 100 percent. 
+    \pau=1000\\vct=100\ This is 105 percent \pau=1000\\vct=105\ this is 105 percent. 
+    \pau=1000\\vct=100\ This is 110 percent \pau=1000\\vct=110\ this is 110 percent. 
+    \pau=1000\\vct=100\ This is 115 percent \pau=1000\\vct=115\ this is 115 percent. 
+    \pau=1000\\vct=100\ This is 120 percent \pau=1000\\vct=120\ this is 120 percent. 
+    \pau=1000\\vct=100\ This is 125 percent \pau=1000\\vct=125\ this is 125 percent. 
+    \pau=1000\\vct=100\ This is 130 percent \pau=1000\\vct=130\ this is 130 percent. 
+    \pau=1000\\vct=100\ This is 135 percent \pau=1000\\vct=135\ this is 135 percent. 
+    \pau=1000\\vct=100\ This is 140 percent \pau=1000\\vct=140\ this is 140 percent. 
+    
+
+# This is the pitch statement from Nuance
+# Example from the document seems to mix rate and pitch:
+# I can <ESC>\pitch=80\ speak lower <ESC>\rate=120\ or speak higher.
+proposal: %nuance This will change the pitch of the voice using the Nuance statements. 
+   
+
+    \pau=1000\ This is 70 percent \pau=1000\ \vct=70\ this is 70 Percent 
+    \pau=1000\\pitch=100\ This is 75 percent \pau=1000\\pitch=75\ this is 75 percent. 
+    \pau=1000\\pitch=100\ This is 80 percent \pau=1000\\pitch=80\ this is 80 percent. 
+    \pau=1000\\pitch=100\ This is 85 percent \pau=1000\\pitch=85\ this is 85 percent. 
+    \pau=1000\\pitch=100\ This is 90 percent \pau=1000\\pitch=90\ this is 90 percent. 
+    \pau=1000\\pitch=100\ This is 95 percent \pau=1000\\pitch=95\ this is 95 percent. 
+    \pau=1000\\pitch=100\ This is 100 percent \pau=1000\\pitch=100\ this is 100 percent. 
+    \pau=1000\\pitch=100\ This is 105 percent \pau=1000\\pitch=105\ this is 105 percent. 
+    \pau=1000\\pitch=100\ This is 110 percent \pau=1000\\pitch=110\ this is 110 percent. 
+    \pau=1000\\pitch=100\ This is 115 percent \pau=1000\\pitch=115\ this is 115 percent. 
+    \pau=1000\\pitch=100\ This is 120 percent \pau=1000\\pitch=120\ this is 120 percent. 
+    \pau=1000\\pitch=100\ This is 125 percent \pau=1000\\pitch=125\ this is 125 percent. 
+    \pau=1000\\pitch=100\ This is 130 percent \pau=1000\\pitch=130\ this is 130 percent. 
+    \pau=1000\\pitch=100\ This is 135 percent \pau=1000\\pitch=135\ this is 135 percent. 
+    \pau=1000\\pitch=100\ This is 140 percent \pau=1000\\pitch=140\ this is 140 percent. 
