@@ -1,0 +1,26 @@
+topic: ~Pause()
+language: enu
+
+
+# Programmer: Brandon.C.Annan@sprint.com
+# Comments: Nuance wait is not honored
+
+u:(in:onActivation) ^goto(intro)
+#u:(in:onActivation) ^goto(nuance)
+
+#Example in the Nuance document: His name is <ESC>\pause=300\ Michael.
+proposal: %intro This is using the pause statement between is and Michael.  His name is \pause=1300\ Michael.
+    ^nextProposal
+
+
+#this is what works:
+proposal: This is using the p a u statement between is and Michael.  His name is \pau=1300\ Michael.
+    ^nextProposal
+
+proposal: %nuance Nuance has a statement to add a pause to the end of a sentance called wait.  Here is an example.  \pau=1000\
+
+    There will be a short wait period after this sentence. \wait=2\
+    This sentence will be followed by a long wait period. 
+    \wait=6\ 
+    Did you notice the difference?  If not, this means the wait statement is not supported. 
+        
