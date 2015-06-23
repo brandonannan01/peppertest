@@ -1,0 +1,15 @@
+topic: ~End_of_Sentance()
+language: enu
+
+
+
+# Programmer: Brandon.C.Annan@sprint.com
+# Comments:
+
+
+u:(in:onActivation) ^goto(intro)
+
+# Nuance 
+proposal: %intro \eos=1\ This sentance is meant to be broken. \eos=0\ and indeed it skips right through the period.  Now it looks like the puctuation is being honored. 
+
+# Did not see an equivelent for Acapela
